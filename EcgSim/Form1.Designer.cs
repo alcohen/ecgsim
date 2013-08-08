@@ -38,9 +38,6 @@
             this.btnStop = new System.Windows.Forms.Button();
             this.dlgFileSelect = new System.Windows.Forms.OpenFileDialog();
             this.serOut = new System.IO.Ports.SerialPort(this.components);
-            this.txtSerIn = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnClearBox = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnFileSelect
@@ -106,6 +103,8 @@
             this.cmbComPort.Name = "cmbComPort";
             this.cmbComPort.Size = new System.Drawing.Size(82, 21);
             this.cmbComPort.TabIndex = 4;
+            this.cmbComPort.Text = "4";
+            this.cmbComPort.SelectedIndexChanged += new System.EventHandler(this.cmbComPort_SelectedIndexChanged);
             this.cmbComPort.SelectionChangeCommitted += new System.EventHandler(this.cmbComPort_SelectionChangeCommitted);
             // 
             // btnStart
@@ -136,50 +135,19 @@
             // 
             // serOut
             // 
+            this.serOut.BaudRate = 38400;
             this.serOut.RtsEnable = true;
-            this.serOut.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serOut_DataReceived);
-            // 
-            // txtSerIn
-            // 
-            this.txtSerIn.Location = new System.Drawing.Point(44, 128);
-            this.txtSerIn.Multiline = true;
-            this.txtSerIn.Name = "txtSerIn";
-            this.txtSerIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtSerIn.Size = new System.Drawing.Size(94, 84);
-            this.txtSerIn.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(0, 128);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 24);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "File";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // btnClearBox
-            // 
-            this.btnClearBox.Location = new System.Drawing.Point(155, 128);
-            this.btnClearBox.Name = "btnClearBox";
-            this.btnClearBox.Size = new System.Drawing.Size(75, 23);
-            this.btnClearBox.TabIndex = 8;
-            this.btnClearBox.Text = "Clear";
-            this.btnClearBox.UseVisualStyleBackColor = true;
-            this.btnClearBox.Click += new System.EventHandler(this.btnClearBox_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 262);
-            this.Controls.Add(this.btnClearBox);
-            this.Controls.Add(this.txtSerIn);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.cmbComPort);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFile);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblFile);
             this.Controls.Add(this.btnFileSelect);
             this.Name = "Form1";
@@ -201,9 +169,6 @@
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.OpenFileDialog dlgFileSelect;
         private System.IO.Ports.SerialPort serOut;
-        private System.Windows.Forms.TextBox txtSerIn;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnClearBox;
     }
 }
 

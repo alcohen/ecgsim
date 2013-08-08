@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WfdbCsharpWrapper;
-using System.IO;
-using System.IO.Ports;
-using System.Threading;
 
 namespace EcgSim
 {
@@ -23,45 +23,192 @@ namespace EcgSim
 
         private void btnStart_Click(object sender, EventArgs e)
         {
+            string inword;
+            int cnt=0;
+            int totCnt = 0;
+            int sendCnt = 0;
+            int readCnt = 0;
+            int iteration = 0;
             btnStart.Enabled = false;
             btnStop.Enabled = true;
             //using (var record = new Record("c:\\users\\Al\\Dropbox\\Medical Projects\\ECG Simulator\\EcgSim\\EcgSim\\data\\100s"))
             using (var record = new Record("data/aami-ec13/aami3a"))
+
+
             //using (var record = new Record(txtFile.Text.Substring(2, txtFile.Text.Length - 6)))
             {
                 record.Open();
                 //next line added by Al as test
                 Frequency.InputFrequency = 125;
-                
+
                 var samples = record.GetSamples(1000);
+                int loop = 0;
                 int val;
+
                 string outword;
-                serOut.BaudRate = 38400;
-                serOut.Parity = Parity.None;
-                serOut.DataBits = 8;
-                serOut.StopBits = StopBits.One;
-                serOut.Handshake = Handshake.None;
+                // serOut.BaudRate = 38400;
+                serOut.BaudRate = 115200;
                 serOut.Open();
-                foreach (var s in samples)
-                {
-                    for (int i = 0; i < s.Length; i++)
-                    {
-                        //Console.Write(s[i].ToString());
-                        //Console.Write(string.Format("D{0000}\t", s[i]));
-                        val = s[i];
-                        outword = "D" + val.ToString("0000");
-                        Console.Write(outword);
-                        serOut.Write(outword);
+
+                Console.Write("Ser wBuf Size ");
+                Console.WriteLine(serOut.WriteBufferSize);
+                Console.Write("Ser rBuf Size ");
+                Console.WriteLine(serOut.ReadBufferSize);
+
+                    Console.WriteLine("Iteration " + iteration);
+
+                                  while (iteration++ < 100)
+                                    {
+                                        foreach (var s in samples)
+                                        {
+
+
+                        for (int i = 0; i < s.Length; i++)
+                        {
+
+                            loop++;
+                            //   Console.WriteLine(loop);
+                            //Console.Write(s[i].ToString());
+                            //Console.Write(string.Format("D{0000}\t", s[i]));
+                            //real         val = s[i];       // real
+
+                            //if ((loop == 1) || (loop == 1000)) 
+                            //    Console.WriteLine("BorE " + s[i]);
+                            val = (s[i] - 1950) * 10;
+                            if (val > 4096) val = 4096;
+                            if (val < 0) val = 0;
+                            //   val = loop;
+
+                            outword = "D" + val.ToString("0000");
+                            serOut.Write(outword);
+                            //    Console.WriteLine(outword);
+
+
+                            if ((readCnt = serOut.BytesToRead) > 0)
+                            {
+                                //     Console.Write("rCnt:");
+                                //     Console.WriteLine(readCnt);
+                                inword = serOut.ReadLine();
+                                cnt = inword.Count(c => c == '>');
+                                totCnt += cnt;
+
+                                Console.Write(inword);
+#if VERBOSE                         
+                            Console.Write("$");
+                            Console.Write(totCnt);
+                            Console.Write("$c");
+                            Console.WriteLine(sendCnt);
+                            
+#endif
+                                Console.Write("]");
+                                //   Console.WriteLine(cnt);
+                                //  Thread.Sleep(1);
+                            }
+                            else
+                            {
+                                Console.WriteLine(",");
+                                Thread.Sleep(1);
+                            }
+                        }
+                        Console.WriteLine();
+                        sendCnt++;
+
+                        do
+                        {
+                            if ((readCnt = serOut.BytesToRead) > 0)
+                            {
+                                // Console.Write("rCnt:");
+                                // Console.WriteLine(readCnt);
+                                Console.Write("[");
+
+                                inword = serOut.ReadLine();
+
+                                cnt = inword.Count(c => c == '>');
+                                totCnt += cnt;
+
+                                Console.Write(inword);
+#if VERBOSE
+                       Console.Write("|");
+                       Console.Write(totCnt);
+                       Console.Write("|c");
+                        Console.WriteLine(sendCnt);
+                        Console.WriteLine(cnt);
+#endif
+                                Console.Write("]");
+                                Console.Write(totCnt);
+                                //  Console.Write("|c");
+                                //  Console.WriteLine(cnt);
+                                //    Thread.Sleep(1);
+                            }
+                            else
+                            {
+                                Console.Write(".");
+                                Thread.Sleep(1);
+                            }
+                        } while ((sendCnt - totCnt) > 30);
+
+                        }
+
+                        Application.DoEvents();
+                        if (btnStart.Enabled)
+                        {
+                            break;
+                        }
                     }
-                    Console.WriteLine();
-                    Thread.Sleep(5);
-                    Application.DoEvents();
-                    if (btnStart.Enabled)
-                    {
-                        break;
-                    }
-                }
+
             }
+                    
+                // Wait for final bytes to drain
+                do
+                {
+                    if ((readCnt = serOut.BytesToRead) > 0)
+                    {
+                        Console.Write("rCnt:");
+                        Console.WriteLine(readCnt);
+                        inword = serOut.ReadLine();
+
+                        cnt = inword.Count(c => c == '>');
+                        totCnt += cnt;
+                        Console.Write(inword);
+                        Console.Write("-");
+                        Console.Write(totCnt);
+                        Console.Write("-");
+                        Console.WriteLine(sendCnt);
+                        Thread.Sleep(10);
+                    }
+                    else
+                    {
+                        Console.WriteLine("No1");
+                        Thread.Sleep(1000);
+                    }
+                } while ((sendCnt - totCnt) > 0);
+                Console.WriteLine(cnt);
+                Console.WriteLine("End 1");
+            if ((readCnt = serOut.BytesToRead) > 0)
+            {
+
+                inword = serOut.ReadLine();
+                 Console.Write(inword);
+            } else {
+                Console.WriteLine("No2");
+                Thread.Sleep(1000);
+            }
+           
+
+            Thread.Sleep(1000);
+            Console.WriteLine("End 2");
+            if ((readCnt = serOut.BytesToRead) > 0)
+            {
+
+                inword = serOut.ReadLine();
+                Console.Write(inword);
+            }
+            else
+            {
+                Console.WriteLine("No3.");
+                Thread.Sleep(1000);
+            }
+           
             serOut.Close();
             btnStart.Enabled = true;
             btnStop.Enabled = false;
@@ -103,7 +250,8 @@ namespace EcgSim
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //cmbComPort.Items = serOut\//
+            //cmbComPort.Items = serOut
+            //btnStart.Enabled = true;
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -113,14 +261,9 @@ namespace EcgSim
             btnStop.Enabled = false;
         }
 
-        private void serOut_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        private void cmbComPort_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtSerIn.Text += e.ToString();
-        }
 
-        private void btnClearBox_Click(object sender, EventArgs e)
-        {
-            txtSerIn.Text = "";
         }
 
     }
