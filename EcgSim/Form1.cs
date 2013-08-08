@@ -103,7 +103,7 @@ namespace EcgSim
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //cmbComPort.Items = serOut
+            //cmbComPort.Items = serOut\//
         }
 
         private void btnStop_Click(object sender, EventArgs e)
