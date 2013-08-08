@@ -1,0 +1,395 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/DTD/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+ <title>ANSI/AAMI EC13 Test Waveforms</title>
+
+<link rel="stylesheet" href="/pn/physionet.css" type="text/css" media="all" />
+<link rel="stylesheet" href="/pn/print.css" type="text/css" media="print" />
+<style type="text/css">
+
+ 
+ 
+
+h1, h2, h3 { color: #44a;
+             background: #cdf; }
+a[href^='http://physionet.org']
+ { background: none; padding-right: 0; }
+</style>
+<script type="text/javascript" src="/pn/jquery.min.js"></script>
+<script type="text/javascript" src="/pn/hoverIntent.js"></script>
+<script type="text/javascript" src="/pn/superfish.js"></script>
+<script type="text/javascript" src="/pn/supersubs.js"></script>
+<script type="text/javascript" src="/pn/jquery.tableofcontents.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('ul.sf-menu').supersubs({ maxWidth: 12, extraWidth: 1 }).superfish({
+      autoArrows: false });
+  if ($('h2').length) { $('#toc').tableOfContents(null, { startLevel: 2 }); }
+  else { $('#toc').hide(); }
+  });
+</script>
+</head>
+<body>
+<div class="banner">
+<table width="100%" style="position: fixed; margin-left: -1em;
+ background-color: #44a;"><tbody>
+<tr>
+<td style="min-width: 700px; padding: 0;">
+<div style="float: left; padding: 0.5em 2em 0.5em 0.5em;">
+<ul class="sf-menu">
+<li><a href="/" style="text-align:center"><span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioNet</b>&nbsp;<img src="/pn/menu-down.gif"></span></a>
+  <table><tbody><tr><td><ul style="margin: -1em 0;">
+  <li><a href="/news.shtml">What's New?&nbsp;<img src="/pn/menu-right.gif"></a>
+    <table><tbody><tr><td><ul>
+    <li><a href="/news.shtml">News from PhysioNet&nbsp;</a></li>
+    <li><a href="/in-the-news.shtml">PhysioNet in the News&nbsp;</a></li>
+    <li><a href="/events/">Events&nbsp;</a></li>
+    <li><a href="/consortium/">Sponsorship opportunities&nbsp;</a></li>
+    <li><a href="/training.shtml">Training opportunities&nbsp;</a></li>
+    </ul></td></tr></tbody></table></li>
+  <li><a href="/site-map.shtml">
+      <span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioNet Library</b>&nbsp;<img src="/pn/menu-right.gif"></span></a>
+    <table><tbody><tr><td><ul>
+    <li><a href="/physionet-intro.shtml">Getting Started&nbsp;</a></li>
+    <li><a href="/challenge/">Challenges&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/challenge/2013/">2013&nbsp;</a></li>
+      <li><a href="/challenge/2012/">2012&nbsp;</a></li>
+      <li><a href="/challenge/">Previous challenges&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/contributors/">Contributors&nbsp;</a></li>
+    <li><a href="/pn-citations.shtml">Publications&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/publications/resource-pubs.shtml">from the PhysioNet team&nbsp;</a></li>
+      <li><a href="/pn-citations.shtml">citing PhysioNet&nbsp;</a></li>
+      <li><a href="/publications/#papers-with-data-and-software">with data and software&nbsp;</a></li>
+      <li><a href="/publications/#papers-with-data">with data&nbsp;</a></li>
+      <li><a href="/publications/#papers-with-software">with software&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/tutorials/">Tutorials&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/tutorials/">Concise tutorials&nbsp;</a></li>
+      <li><a href="/tutorials/#workshops">Workshops&nbsp;</a></li>
+      <li><a href="/tutorials/#reference">Reference guides&nbsp;</a></li>
+      <li><a href="/tutorials/#other">Links&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/resource.shtml">About PhysioNet&nbsp;</a></li>
+    <li><a href="/other-links.shtml">Links&nbsp;</a></li>
+    </ul></td></tr></tbody></table></li>
+  <li class="pb"><a href="/physiobank/"> <span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioBank</b>&nbsp;<img src="/pn/menu-right.gif"></span></a>
+    <table><tbody><tr><td><ul>
+    <li><a href="/physiobank/physiobank-intro.shtml">Getting Started&nbsp;</a></li>
+    <li><a href="/physiobank/database/">Signal Archives&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/physiobank/database/#multi">Multi-parameter&nbsp;</a></li>
+      <li><a href="/physiobank/database/#ecg">ECG&nbsp;</a></li>
+      <li><a href="/physiobank/database/#rr">RR intervals&nbsp;</a></li>
+      <li><a href="/physiobank/database/#gait">Gait and balance&nbsp;</a></li>
+      <li><a href="/physiobank/database/#neuro">Neuro- and myoelectric&nbsp;</a></li>
+      <li><a href="/physiobank/database/#image">Images&nbsp;</a></li>
+      <li><a href="/physiobank/database/#synthetic">Synthetic&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/cgi-bin/ATM">PhysioBank ATM&nbsp;</a></li>
+    <li><a href="/cgi-bin/pbsearch">PhysioBank Search&nbsp;</a></li>
+    <li><a href="/physiobank/call-for-data/">Call for Data&nbsp;</a></li>
+    <li><a href="/physiobank/about.shtml">About PhysioBank&nbsp;</a></li>
+    <li><a href="/physiobank/other.shtml">Links&nbsp;</a></li>
+    </ul></td></tr></tbody></table></li>
+  <li class="pt"><a href="/physiotools/"> <span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioToolkit</b>&nbsp;<img src="/pn/menu-right.gif"></span></a>
+    <table><tbody><tr><td><ul>
+    <li><a href="/physiotools/getting-started.shtml">Getting Started&nbsp;</a></li>
+    <li><a href="/physiotools/software-index.shtml">Software Index&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/physiotools/software-index.shtml#pbdv">Data visualization&nbsp;<img src="/pn/menu-right.gif"></a>
+        <table><tbody><tr><td><ul>
+        <li><a href="/physiotools/software-index.shtml#pbdv">PhysioBank&nbsp;</a></li>
+        <li><a href="/physiotools/software-index.shtml#gpdv">General&nbsp;</a></li>
+        </ul></td></tr></tbody></table></li>
+      <li><a href="/physiotools/software-index.shtml#pbdm">Data mining&nbsp;</a>
+      <li><a href="/physiotools/software-index.shtml#fc">Data import/export&nbsp;<img src="/pn/menu-right.gif"></a>
+        <table><tbody><tr><td><ul>
+        <li><a href="/physiotools/software-index.shtml#fc">Format conversion&nbsp;</a></li>
+        <li><a href="/physiotools/software-index.shtml#cpcr">Record creation&nbsp;</a></li>
+        </ul></td></tr></tbody></table></li>
+      <li><a href="/physiotools/software-index.shtml#deid">Deidentification&nbsp;</a></li>
+      <li><a href="/physiotools/software-index.shtml#psp">Signal processing&nbsp;<img src="/pn/menu-right.gif"></a>
+        <table><tbody><tr><td><ul>
+        <li><a href="/physiotools/software-index.shtml#psp">Physiologic&nbsp;</a></li>
+        <li><a href="/physiotools/software-index.shtml#gsp">General&nbsp;</a></li>
+        </ul></td></tr></tbody></table></li>
+      <li><a href="/physiotools/software-index.shtml#fdats">Time series analysis&nbsp;<img src="/pn/menu-right.gif"></a>
+        <table><tbody><tr><td><ul>
+        <li><a href="/physiotools/software-index.shtml#fdats">Frequency-domain&nbsp;</a></li>
+        <li><a href="/physiotools/software-index.shtml#nats">Nonlinear&nbsp;</a></li>
+        <li><a href="/physiotools/software-index.shtml#hrv">Heart rate variability&nbsp;</a></li>
+        </ul></td></tr></tbody></table></li>
+      <li><a href="/physiotools/software-index.shtml#pms">Models and simulation&nbsp;</a></li>
+      <li><a href="/physiotools/software-index.shtml#lib">Software development&nbsp;<img src="/pn/menu-right.gif"></a>
+        <table><tbody><tr><td><ul>
+        <li><a href="/physiotools/software-index.shtml#lib">Libraries and tools&nbsp;</a></li>
+        <li><a href="/physiotools/software-index.shtml#eea">Device Evaluation&nbsp;</a></li>
+        </ul></td></tr></tbody></table></li>
+      <li><a href="/physiotools/software-index.shtml#misc">Miscellaneous&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/physiotools/matlab/">MATLAB software&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/physiotools/matlab/wfdb-swig-matlab">WFDB Toolbox for ML&nbsp;</a></li>
+      <li><a href="/physiotools/matlab/">Other&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/physiotools/wfdb.shtml">WFDB software&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/physiotools/wfdb-freebsd-quick-start.shtml">FreeBSD&nbsp;</a></li>
+      <li><a href="/physiotools/wfdb-linux-quick-start.shtml">GNU/Linux&nbsp;</a></li>
+      <li><a href="/physiotools/wfdb-darwin-quick-start.shtml">Mac OS X&nbsp;</a></li>
+      <li><a href="/physiotools/wfdb-windows-quick-start.shtml">MS-Windows&nbsp;</a></li>
+      <li><a href="/physiotools/wfdb-solaris-quick-start.shtml">Solaris&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/physiotools/manuals.shtml">Manuals&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/physiotools/wpg/">WFDB Programming&nbsp;</a></li>
+      <li><a href="/physiotools/wag/">WFDB Applications&nbsp;</a></li>
+      <li><a href="/physiotools/wug/">WAVE&nbsp;</a></li>
+      <li><a href="/physiotools/rcvsim/doc/manual/">RCVSIM&nbsp;</a></li>
+      <li><a href="/physiotools/plt/plt/html/">plt&nbsp;</a></li>
+      <li><a href="http://www.lulu.com/physionet/" class="plain" target="other">Bookstore&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/physiotools/other.shtml">Links&nbsp;</a></li>
+    </ul></td></tr></tbody></table></li>
+  <li class="pw"><a href="https://physionet.org/users/"> <span style="font-family: Georgia, Times, serif; font-variant: small-caps;"><b>PhysioNetWorks</b>&nbsp;<img src="/pn/menu-right.gif"></span></a>
+    <table><tbody><tr><td><ul>
+    <li><a href="https://physionet.org/users/home/"><em>* Home&nbsp;</em></a></li>
+    <li><a href="https://physionet.org/users/">Login&nbsp;</a></li>
+    <li><a href="https://physionet.org/users/">Create an Account&nbsp;</a></li>
+    <li><a href="https://physionet.org/works/"><em>* Works in Progress&nbsp;</em></a></li>
+    <li><a href="https://physionet.org/users/help/data-sharing/">Data Sharing&nbsp;</a></li>
+    <li><a href="https://physionet.org/users/help/">PhysioNetWorks Help&nbsp;</a></li>
+    <li><a href="https://physionet.org/users/"><em>* login to view&nbsp;</em></a></li>
+    </ul></td></tr></tbody></table></li>
+  <li><a href="/faq.shtml">Help&nbsp;<img src="/pn/menu-right.gif"></a>
+    <table><tbody><tr><td><ul>
+    <li><a href="/faq.shtml">FAQ&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/faq.shtml#general">General&nbsp;</a></li>
+      <li><a href="/faq.shtml#sign-in">Sign-in and passwords&nbsp;</a></li>
+      <li><a href="/faq.shtml#where-is">Where is ...?&nbsp;</a></li>
+      <li><a href="/faq.shtml#downloading">Downloading&nbsp;</a></li>
+      <li><a href="/faq.shtml#physiobank">PhysioBank&nbsp;</a></li>
+      <li><a href="/faq.shtml#signals">Signals&nbsp;</a></li>
+      <li><a href="/faq.shtml#annotations">Annotations&nbsp;</a></li>
+      <li><a href="/faq.shtml#software">Software&nbsp;</a></li>
+      <li><a href="/faq.shtml#help">Help!&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/site-map.shtml">Site map&nbsp;</a></li>
+    <li><a href="/tour/">Tour&nbsp;</a></li>
+    <li><a href="/tutorials/">Tutorials&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/tutorials/">Concise tutorials&nbsp;</a></li>
+      <li><a href="/tutorials/#workshops">Workshops&nbsp;</a></li>
+      <li><a href="/tutorials/#reference">Reference guides&nbsp;</a></li>
+      <li><a href="/tutorials/#other">Links&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/physiotools/manuals.shtml">Manuals&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="/physiotools/wpg/">WFDB Programming&nbsp;</a></li>
+      <li><a href="/physiotools/wag/">WFDB Applications&nbsp;</a></li>
+      <li><a href="/physiotools/wug/">WAVE&nbsp;</a></li>
+      <li><a href="/physiotools/rcvsim/doc/manual/">RCVSIM&nbsp;</a></li>
+      <li><a href="/physiotools/plt/plt/html/">plt&nbsp;</a></li>
+      <li><a href="http://www.lulu.com/physionet/" class="plain" target="other">Bookstore&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/mirrors/">Mirrors&nbsp;<img src="/pn/menu-right.gif"></a>
+      <table><tbody><tr><td><ul>
+      <li><a href="http://physionet.mit.edu/physiobank/database/aami-ec13/?C=M;O=A">Cambridge, MA&nbsp;</a></li>
+      <li><a href="http://physionet.caregroup.harvard.edu/physiobank/database/aami-ec13/?C=M;O=A">Boston, MA&nbsp;</a></li>
+      <li><a href="http://physionet.nlm.nih.gov/physiobank/database/aami-ec13/?C=M;O=A">Bethesda, MD&nbsp;</a></li>
+      <li><a href="http://physionet.cecst.com/physiobank/database/aami-ec13/?C=M;O=A">San Antonio, TX&nbsp;</a></li>
+      <li><a href="http://physionet.incor.usp.br/physiobank/database/aami-ec13/?C=M;O=A">Sao Paulo, Brazil&nbsp;</a></li>
+      <li><a href="http://physionet.ph.biu.ac.il/physiobank/database/aami-ec13/?C=M;O=A">Ramat-Gan, Israel&nbsp;</a></li>
+      <li><a href="http://physionet.cps.unizar.es/physiobank/database/aami-ec13/?C=M;O=A">Zaragoza, Spain&nbsp;</a></li>
+      <li><a href="http://physionet.fri.uni-lj.si/physiobank/database/aami-ec13/?C=M;O=A">Ljubljana, Slovenia&nbsp;</a></li>
+      <li><a href="http://physionet.ics.forth.gr/physiobank/database/aami-ec13/?C=M;O=A">Heraklion, Greece&nbsp;</a></li>
+      <li><a href="http://physionet.xjtu.edu.cn/physiobank/database/aami-ec13/?C=M;O=A">Xi'an, China&nbsp;</a></li>
+      <li><a href="/mirrors/mirror-howto.shtml">Setting up a mirror&nbsp;</a></li>
+      </ul></td></tr></tbody></table></li>
+    <li><a href="/citations.shtml">How to Cite&nbsp;</a></li>
+    <li><a href="/guidelines.shtml">Contributing&nbsp;</a></li>
+    <li><a href="/copying.shtml">Copying&nbsp;</a></li>
+    <li><a href="/privacy.shtml">Privacy&nbsp;</a></li>
+    </ul></td></tr></tbody></table></li>
+  </ul></td></tr></tbody></table>
+
+
+</ul>
+</div>
+
+<script language="javascript" src="/pn/breadcrumbs.js"></script>
+
+<div style="float: right;
+	   padding: 0.6em;
+	   margin: 0;">
+<script type="text/javascript">
+document.write("<form action=\"/search-results.shtml\" " +
+		      "id=\"searchbox_007405203507124691154:xfntrbzi-tu\"> " +
+	       "<input type=\"hidden\" name=\"cx\" " +
+	              "value=\"007405203507124691154:xfntrbzi-tu\" /> " +
+	       "<input type=\"hidden\" name=\"cof\" value=\"FORID:11\" /> " +
+	       "<input type=\"text\" name=\"q\" size=\"25\" /> " +
+	       "<input type=\"submit\" name=\"sa\" value=\"Search\" /> " +
+	       "</form>");
+</script>
+
+<noscript>
+<form action='http://www.google.com/search' id='searchForm'>
+  <div>
+    <input name='q' type='hidden' value='site:physionet.org' />
+    <input name='q' size='25' type='text' />
+    <input name='sa' type='submit' value='Search' />
+  </div>
+</form>
+</noscript>
+
+</div></td>
+</tr>
+</tbody></table>
+</div>
+<div class="pbanner">
+<center>
+from <b>PhysioNet</b>, the research resource for complex physiologic signals
+</center>
+</div>
+<a name="top"><div style="min-width: 700px; margin: 0 0 0.4em;
+			  background-color: #44a;
+			  padding: 1px"><br><hr></div></a>
+
+ <h1>ANSI/AAMI EC13 Test Waveforms</h1>
+
+<div style="padding: 1.5em 0;">
+
+<ul id="toc"></ul>
+
+
+
+
+<p>
+<center><img src="/physiobank/charts/ec13.png"></center>
+
+<p>
+The files in this set can be used for testing a variety of
+devices that monitor the electrocardiogram.  The recordings include
+both synthetic and real waveforms.  For details on these test waveforms
+and how to use them, please refer to section 5.1.2.1, paragraphs (e) and
+(g) in the reference below.
+
+<p>
+Each recording contains one ECG signal sampled at 720 Hz with 12-bit
+resolution.  The recordings can be viewed or converted to text form
+using
+the <a href="http://www.physionet.org/cgi-bin/ATM?database=aami-ec13">PhysioBank
+ATM</a>, or read directly using
+the <a href="/physiotools/wfdb.shtml">WFDB Software Package</a>.  The
+record names refer to the illustrations in the reference below
+(figures 3 and 4 on pages 25 and 26 of that document).  Note that EC13
+specifies that the tachycardia waveforms in figure 4 should be
+presented following an abrupt transition from synthetic waveforms
+specified in figure 6 of EC13; thus the <tt>aami4</tt>* records each
+begin with 30 seconds of triangle waveforms, followed by the figure 4
+waveforms.  The records named
+<tt>aami4a_d</tt> and <tt>aami4a_h</tt>, etc., contain the half-size and
+double-size versions of the figure 4 data that are mentioned in the standard.
+(The names are misleading, since the <tt>_d</tt> records contain the half-size
+versions, and the <tt>_h</tt> records contain the double-size versions, the
+opposite of what the record names imply.  The names are those given by AAMI,
+the source of these files, and they have not been changed, in hopes of
+avoiding further confusion.  Thanks to Humberto Valdes for pointing out this
+issue.)
+
+<p>
+In addition to these waveforms, EC13 specifies the use of specific synthesized
+waveforms that can be created using the
+<a href="/physiotools/matlab/ECGwaveGen/">ECG waveform generator for
+Matlab/Octave</a> available in PhysioToolkit.
+
+<h3>Reference</h3>
+
+<blockquote>
+<i>Cardiac monitors, heart rate meters, and alarms</i> [American
+National Standard (ANSI/AAMI EC13:2002)].  Arlington, VA: Association
+for the Advancement of Medical Instrumentation, 2002.
+</blockquote>
+<pre><img src="/icons/blank.gif" alt="Icon " width="20" height="22"> <a href="?C=N;O=A">Name</a>                    <a href="?C=M;O=D">Last modified</a>      <a href="?C=S;O=A">Size</a>  <a href="?C=D;O=A">Description</a><hr><img src="/icons/back.gif" alt="[DIR]" width="20" height="22"> <a href="/physiobank/database/">Parent Directory</a>                             -   
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami3a.dat">aami3a.dat</a>              19-Dec-2002 11:36   84K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami3a.hea">aami3a.hea</a>              19-Dec-2002 11:36   97   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami3b.dat">aami3b.dat</a>              19-Dec-2002 11:36   84K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami3b.hea">aami3b.hea</a>              19-Dec-2002 11:36   96   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami3c.dat">aami3c.dat</a>              19-Dec-2002 11:36   84K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami3c.hea">aami3c.hea</a>              19-Dec-2002 11:36   96   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami3d.dat">aami3d.dat</a>              19-Dec-2002 11:36   67K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami3d.hea">aami3d.hea</a>              19-Dec-2002 11:36   96   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami4a.dat">aami4a.dat</a>              19-Dec-2002 11:36  127K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami4a.hea">aami4a.hea</a>              19-Dec-2002 11:36   99   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami4a_d.dat">aami4a_d.dat</a>            19-Dec-2002 11:36  127K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami4a_d.hea">aami4a_d.hea</a>            19-Dec-2002 11:36  104   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami4a_h.dat">aami4a_h.dat</a>            19-Dec-2002 11:36  127K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami4a_h.hea">aami4a_h.hea</a>            19-Dec-2002 11:37  105   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami4b.dat">aami4b.dat</a>              19-Dec-2002 11:37  127K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami4b.hea">aami4b.hea</a>              19-Dec-2002 11:37   99   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami4b_d.dat">aami4b_d.dat</a>            19-Dec-2002 11:37  127K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami4b_d.hea">aami4b_d.hea</a>            19-Dec-2002 11:37  104   header file
+<img src="/icons/binary.gif" alt="[   ]" width="20" height="22"> <a href="aami4b_h.dat">aami4b_h.dat</a>            19-Dec-2002 11:37  127K  digitized signal(s)
+<img src="/icons/text.gif" alt="[   ]" width="20" height="22"> <a href="aami4b_h.hea">aami4b_h.hea</a>            19-Dec-2002 11:37  106   header file
+<img src="/icons/index.gif" alt="[   ]" width="20" height="22"> <a href="RECORDS">RECORDS</a>                 19-Dec-2002 13:01   78   list of record names
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="MD5SUMS">MD5SUMS</a>                 12-Jul-2005 20:03  916   
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="SHA1SUMS">SHA1SUMS</a>                12-Jul-2005 20:03  1.1K  
+<img src="/icons/unknown.gif" alt="[   ]" width="20" height="22"> <a href="SHA256SUMS">SHA256SUMS</a>              18-Sep-2007 12:36  1.8K  
+<hr></pre>
+
+ 
+
+
+
+
+</div>
+<table width="100%" style="margin: 0;"><tr>
+<td style="text-align: center; vertical-align: middle; padding: 0;
+	   background: #44a;">
+<a href="http://physionet.org/cgi-bin/feedback" style="text-decoration:none">
+<font color="white"><b>Send feedback about this page to PhysioNet</b></font></a>
+</td></tr></table>
+<table><tr><td style="padding: 0;">
+<div style="float: left; padding: 0; font-size: 80%; margin: 0.5em;">
+Your comments and suggestions are welcome.  We encourage you to use our
+<a href="http://physionet.org/cgi-bin/feedback">feedback form</a> to comment
+on this page.  If you would like to receive a reply, please send your
+comments by email to
+<a href=mailto:webmaster@physionet.org?subject=http://physionet.org/physiobank/database/aami-ec13/?C=M;O=A">
+<tt>webmaster@physionet.org</tt></a>. 
+<p>
+Updated 
+
+Friday, 16 December 2011 at 01:34 EST
+</div></td>
+<td style="float: right; padding: 0;">
+<img src="/nibib+nih+nigms.gif" width="369"
+     usemap="#nih" border="0" alt="NIBIB/NIH/NIGMS"
+     style="float: right; min-width: 369px; padding: 1em 1em 1em 2em">
+
+<map name="nih" id="map">
+ <area shape="rect" coords="0,0,160,100"
+       href="http://www.nibib.nih.gov/" target="other"
+       alt="National Institute for Biomedical Imaging and Bioengineering"/>
+ <area shape="rect" coords="170,0,230,100"
+       href="http://www.nih.gov/" target="other"
+       alt="National Institutes of Health"/>
+ <area shape="rect" coords="240,0,370,100"
+       href="http://www.nigms.nih.gov/" target="other"
+       alt="National Institute of General Medical Sciences"/>
+</map>
+
+</td></tr>
+</tr></table>
+</body></html>
