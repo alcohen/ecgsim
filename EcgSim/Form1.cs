@@ -31,7 +31,7 @@ namespace EcgSim
             int iteration = 0;
             btnStart.Enabled = false;
             btnStop.Enabled = true;
-            //using (var record = new Record("c:\\users\\Al\\Dropbox\\Medical Projects\\ECG Simulator\\EcgSim\\EcgSim\\data\\100s"))
+            ////using (var record = new Record("c:\\users\\Al\\Dropbox\\Medical Projects\\ECG Simulator\\EcgSim\\EcgSim\\data\\100s"))
             using (var record = new Record("data/aami-ec13/aami3a"))
 
 
